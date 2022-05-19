@@ -65,14 +65,12 @@ def showStatus():
   print('Inventory : ' + str(inventory))
   #print an item if there is one
   if "item" in rooms[currentRoom]:
-    print('You see a ' + rooms[currentRoom]['item'])
+    if len(rooms[currentRoom]['item']) > 0:
+        print('You see a ' + rooms[currentRoom]['item'])
   print("---------------------------")
   
 def spawnMonster():
-    roomList = dict.keys(rooms)
-    randomKey = int(random.randint(0,len(rooms)-1))
-    randomRoom = 
-    rooms[roomList[int(random.randint(0,len(rooms)-1))]['item'] = 'monster'
+    rooms[random.choice(list(rooms.keys()))]['item'] = 'monster'
     
 #main-program
 showInstructions()
@@ -82,9 +80,6 @@ move = ''
 while move == '':
     move = input('>')
     move = move.lower().split()
-    if move[0] == "cheatcode":
-        print('Gewonnen!!! Dein Skill ist überirdisch')
-        break
     if move[0] == "exit":
         print(move)
         break
